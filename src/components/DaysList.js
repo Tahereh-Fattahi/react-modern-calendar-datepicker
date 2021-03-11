@@ -230,7 +230,7 @@ const DaysList = ({
             <div
               style={{
                 position: 'absolute',
-                top: '-10px',
+                top: '-7px',
                 left: '50%',
                 transform: 'translate(-50%, 0)',
                 fontSize: '100%',
