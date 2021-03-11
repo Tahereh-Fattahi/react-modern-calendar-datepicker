@@ -10,6 +10,7 @@ import {
 import { TYPE_SINGLE_DATE, TYPE_RANGE, TYPE_MUTLI_DATE } from '../shared/constants';
 import handleKeyboardNavigation from '../shared/keyboardNavigation';
 import { useLocaleUtils, useLocaleLanguage } from '../shared/hooks';
+import momentJalaali from "moment-jalaali"
 
 const DaysList = ({
   activeDate,
@@ -30,6 +31,7 @@ const DaysList = ({
   shouldHighlightWeekends,
   isQuickSelectorOpen,
   customDaysClassName,
+  trackingList,
 }) => {
   const calendarSectionWrapper = useRef(null);
   const { isRtl, weekDays: weekDaysList } = useLocaleLanguage(locale);
@@ -213,7 +215,45 @@ const DaysList = ({
         {...(!isStandard || !isOnActiveSlide || isQuickSelectorOpen ? { 'aria-hidden': true } : {})}
         role="gridcell"
         data-is-default-selectable={shouldEnableKeyboardNavigation}
+        style={{position:"relative"}}
       >
+         {user.trackingList.some(
+                (x) =>
+                  x.date ===
+                    momentJalaali(year+'-'+month+'-'+day , "jYYYY-jMM-jDD").format("YYYY-MM-DD") &&
+                  x.options.some(
+                    (y) =>
+                      y.optionId != 25 &&
+                      y.optionId != 26 &&
+                      y.optionId != 27 &&
+                      // y.optionId != 28 &&
+                      y.optionId != 1 &&
+                      y.optionId != 2 &&
+                      y.optionId != 3 &&
+                      y.optionId != 4
+                  ) &&
+                  !x.options.some(
+                    (z) =>
+                      z.optionId === 25 ||
+                      z.optionId === 26 ||
+                      z.optionId === 27
+                  )
+              ) && (
+                <div
+                  style={{
+                    position: "absolute",
+                    // bottom: "12px",
+                    top: "10px",
+                    left: "50%",
+                    transform: "translate(-50%, 0)",
+                    width: "5px",
+                    height: "5px",
+                    borderRadius: "50%",
+                    backgroundColor: "white",
+                  }}
+                />
+              )}
+
         {!isStandard ? '' : getLanguageDigits(day)}
       </div>
     );
