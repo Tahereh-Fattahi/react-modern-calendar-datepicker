@@ -217,7 +217,7 @@ const DaysList = ({
         data-is-default-selectable={shouldEnableKeyboardNavigation}
         style={{position:"relative"}}
       >
-         {user.trackingList.some(
+         {trackingList.some(
                 (x) =>
                   x.date ===
                     momentJalaali(year+'-'+month+'-'+day , "jYYYY-jMM-jDD").format("YYYY-MM-DD") &&
