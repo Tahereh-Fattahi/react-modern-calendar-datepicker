@@ -33,6 +33,7 @@ const DaysList = ({
   isQuickSelectorOpen,
   customDaysClassName,
   trackingList,
+  userMode,
 }) => {
   const calendarSectionWrapper = useRef(null);
   const { isRtl, weekDays: weekDaysList } = useLocaleLanguage(locale);
@@ -261,17 +262,31 @@ const DaysList = ({
               !x.options.some(z => z.optionId === 25 || z.optionId === 26 || z.optionId === 27),
           ) && (
             <div
-              style={{
-                position: 'absolute',
-                // bottom: "12px",
-                top: '0px',
-                left: '50%',
-                transform: 'translate(-50%, 0)',
-                width: '5px',
-                height: '5px',
-                borderRadius: '50%',
-                backgroundColor: 'white',
-              }}
+              style={
+                userMode && userMode != 2
+                  ? {
+                      position: 'absolute',
+                      // bottom: "12px",
+                      top: '0px',
+                      left: '50%',
+                      transform: 'translate(-50%, 0)',
+                      width: '5px',
+                      height: '5px',
+                      borderRadius: '50%',
+                      backgroundColor: 'white',
+                    }
+                  : {
+                      position: 'absolute',
+                      // bottom: "12px",
+                      top: '0px',
+                      left: '50%',
+                      transform: 'translate(-50%, 0)',
+                      width: '5px',
+                      height: '5px',
+                      borderRadius: '50%',
+                      backgroundColor: '#97a9e9',
+                    }
+              }
             />
           )}
 
