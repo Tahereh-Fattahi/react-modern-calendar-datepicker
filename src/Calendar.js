@@ -29,6 +29,7 @@ const Calendar = ({
   renderFooter,
   customDaysClassName,
   trackingList,
+  userMode,
 }) => {
   const calendarElement = useRef(null);
   const [mainState, setMainState] = useState({
@@ -175,6 +176,7 @@ const Calendar = ({
         customDaysClassName={customDaysClassName}
         isQuickSelectorOpen={mainState.isYearSelectorOpen || mainState.isMonthSelectorOpen}
         trackingList = {trackingList}
+        userMode={userMode}
       />
       <div className="Calendar__footer">{renderFooter()}</div>
     </div>
