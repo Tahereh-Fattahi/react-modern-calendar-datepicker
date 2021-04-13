@@ -263,7 +263,7 @@ const DaysList = ({
           ) && (
             <div
               style={
-                userMode && userMode != 2
+                userMode === 0 || userMode === 1
                   ? {
                       position: 'absolute',
                       // bottom: "12px",
