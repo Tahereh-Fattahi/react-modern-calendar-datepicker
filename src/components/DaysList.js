@@ -231,13 +231,13 @@ const DaysList = ({
               style={{
                 position: 'absolute',
                 bottom: '7px',
-                left: '70%',
-                transform: 'translate(70%, 0)',
+                left: '68%',
+                transform: 'translate(-68%, 0)',
                 fontSize: '100%',
                 height: '10px',
               }}
             >
-              <RiStickyNote2Fill size="10" color="#6d77a7" />
+              <RiStickyNote2Fill size="10" color={userMode === 2 ? '#acbade' : '#6d77a7'} />
             </div>
           )}
         {trackingList &&
