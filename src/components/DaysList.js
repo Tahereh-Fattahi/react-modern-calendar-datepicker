@@ -231,8 +231,8 @@ const DaysList = ({
               style={{
                 position: 'absolute',
                 bottom: '7px',
-                left: '65%',
-                transform: 'translate(-65%, 0)',
+                left: '70%',
+                transform: 'translate(70%, 0)',
                 fontSize: '100%',
                 height: '10px',
               }}
@@ -287,9 +287,9 @@ const DaysList = ({
                 {
                   position: 'absolute',
                   // bottom: "12px",
-                  bottom: '0px',
+                  bottom: '5px',
                   left: '50%',
-                  transform: 'translate(-50%, 100%)',
+                  transform: 'translate(-50%, 0)',
                   width: '5px',
                   height: '5px',
                   borderRadius: '50%',
