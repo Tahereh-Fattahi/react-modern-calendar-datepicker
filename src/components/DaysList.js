@@ -12,6 +12,7 @@ import handleKeyboardNavigation from '../shared/keyboardNavigation';
 import { useLocaleUtils, useLocaleLanguage } from '../shared/hooks';
 import momentJalaali from 'moment-jalaali';
 import { GoHeart } from 'react-icons/go';
+import { RiStickyNote2Fill } from 'react-icons/ri';
 
 const DaysList = ({
   activeDate,
@@ -229,14 +230,14 @@ const DaysList = ({
             <div
               style={{
                 position: 'absolute',
-                bottom: '0',
+                bottom: '5%',
                 left: '60%',
-                transform: 'translate(-60%, 100%)',
+                transform: 'translate(-60%, 95%)',
                 fontSize: '100%',
                 height: '10px',
               }}
             >
-              <GoHeart size="10" color="red" />
+              <RiStickyNote2Fill size="10" color="#6d77a7" />
             </div>
           )}
         {trackingList &&
@@ -258,7 +259,7 @@ const DaysList = ({
                 height: '10px',
               }}
             >
-              <GoHeart size="10" color="red" />
+              <GoHeart size="10" color="#e3528f" />
             </div>
           )}
         {trackingList &&
