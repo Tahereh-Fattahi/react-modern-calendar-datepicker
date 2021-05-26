@@ -223,7 +223,7 @@ const DaysList = ({
         {notes &&
           notes.some(
             x =>
-              x.date ===
+              x.noteDate ===
               momentJalaali(year + '-' + month + '-' + day, 'jYYYY-jMM-jDD').format('YYYY-MM-DD'),
           ) && (
             <div
