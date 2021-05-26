@@ -34,6 +34,7 @@ const DaysList = ({
   customDaysClassName,
   trackingList,
   userMode,
+  notes,
 }) => {
   const calendarSectionWrapper = useRef(null);
   const { isRtl, weekDays: weekDaysList } = useLocaleLanguage(locale);
@@ -219,6 +220,25 @@ const DaysList = ({
         data-is-default-selectable={shouldEnableKeyboardNavigation}
         style={{ position: 'relative' }}
       >
+        {notes &&
+          notes.some(
+            x =>
+              x.date ===
+              momentJalaali(year + '-' + month + '-' + day, 'jYYYY-jMM-jDD').format('YYYY-MM-DD'),
+          ) && (
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '0',
+                left: '60%',
+                transform: 'translate(-60%, 100%)',
+                fontSize: '100%',
+                height: '10px',
+              }}
+            >
+              <GoHeart size="10" color="red" />
+            </div>
+          )}
         {trackingList &&
           trackingList.some(
             x =>
@@ -231,9 +251,9 @@ const DaysList = ({
             <div
               style={{
                 position: 'absolute',
-                top: '-7px',
+                bottom: '0',
                 left: '50%',
-                transform: 'translate(-50%, 0)',
+                transform: 'translate(-50%, 100%)',
                 fontSize: '100%',
                 height: '10px',
               }}
@@ -263,29 +283,28 @@ const DaysList = ({
           ) && (
             <div
               style={
-                userMode === 0 || userMode === 1
-                  ? {
-                      position: 'absolute',
-                      // bottom: "12px",
-                      top: '0px',
-                      left: '50%',
-                      transform: 'translate(-50%, 0)',
-                      width: '5px',
-                      height: '5px',
-                      borderRadius: '50%',
-                      backgroundColor: 'white',
-                    }
-                  : {
-                      position: 'absolute',
-                      // bottom: "12px",
-                      top: '0px',
-                      left: '50%',
-                      transform: 'translate(-50%, 0)',
-                      width: '5px',
-                      height: '5px',
-                      borderRadius: '50%',
-                      backgroundColor: '#97a9e9',
-                    }
+                {
+                  position: 'absolute',
+                  // bottom: "12px",
+                  bottom: '0px',
+                  left: '50%',
+                  transform: 'translate(-50%, 100%)',
+                  width: '5px',
+                  height: '5px',
+                  borderRadius: '50%',
+                  backgroundColor: 'white',
+                }
+                // : {
+                //     position: 'absolute',
+                //     // bottom: "12px",
+                //     top: '0px',
+                //     left: '50%',
+                //     transform: 'translate(-50%, 0)',
+                //     width: '5px',
+                //     height: '5px',
+                //     borderRadius: '50%',
+                //     backgroundColor: '#97a9e9',
+                //   }
               }
             />
           )}
