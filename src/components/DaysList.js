@@ -230,9 +230,9 @@ const DaysList = ({
             <div
               style={{
                 position: 'absolute',
-                bottom: '5%',
-                left: '60%',
-                transform: 'translate(-60%, 95%)',
+                bottom: '7px',
+                left: '65%',
+                transform: 'translate(-65%, 0)',
                 fontSize: '100%',
                 height: '10px',
               }}
@@ -252,9 +252,9 @@ const DaysList = ({
             <div
               style={{
                 position: 'absolute',
-                bottom: '0',
+                bottom: '7px',
                 left: '50%',
-                transform: 'translate(-50%, 100%)',
+                transform: 'translate(-50%, 0)',
                 fontSize: '100%',
                 height: '10px',
               }}
