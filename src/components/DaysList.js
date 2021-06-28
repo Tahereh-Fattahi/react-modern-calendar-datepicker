@@ -135,12 +135,19 @@ const DaysList = ({
       isEndingDayRange,
       isWithinRange,
     } = getDayStatus(dayItem);
-    const customDayItemClassName = customDaysClassName.find(day => isSameDay(dayItem, day));
+    let temp = '';
+    customDaysClassName.map(day => {
+      if (isSameDay(dayItem, day)) {
+        temp = temp + ' ' + day.className;
+      }
+      return temp;
+    });
+    const customDayItemClassName = temp;
     const classNames = ''
       .concat(isToday && !isSelected ? ` -today ${calendarTodayClassName}` : '')
       .concat(!dayItem.isStandard ? ' -blank' : '')
       .concat(dayItem.isWeekend && shouldHighlightWeekends ? ' -weekend' : '')
-      .concat(customDayItemClassName ? ` ${customDayItemClassName.className}` : '')
+      .concat(customDayItemClassName ? ` ${customDayItemClassName}` : '')
       .concat(isSelected ? ` -selected ${calendarSelectedDayClassName}` : '')
       .concat(isStartingDayRange ? ` -selectedStart ${calendarRangeStartClassName}` : '')
       .concat(isEndingDayRange ? ` -selectedEnd ${calendarRangeEndClassName}` : '')
